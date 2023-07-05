@@ -24,6 +24,11 @@
 					<input id="email" name="email" type="email" value="{{.email}}" required>
 				</div>
 
+				<div class="required inline field">
+					<input type="checkbox" id="notabot" name="notabot" value="Notabot">
+					<label for="notabot">Confirm that you are not a bot</label><br>
+				</div>
+
 				{{if not .DisablePassword}}
 					<div class="required inline field {{if and (.Err_Password) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeRegister))}}error{{end}}">
 						<label for="password">{{.locale.Tr "password"}}</label>

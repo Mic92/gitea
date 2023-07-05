@@ -411,6 +411,11 @@ func SignUpPost(ctx *context.Context) {
 	context.SetCaptchaData(ctx)
 	ctx.Data["PageIsSignUp"] = true
 
+	if form.Notabot != "Notabot" {
+		ctx.Error(http.StatusForbidden)
+		return
+	}
+
 	// Permission denied if DisableRegistration or AllowOnlyExternalRegistration options are true
 	if setting.Service.DisableRegistration || setting.Service.AllowOnlyExternalRegistration {
 		ctx.Error(http.StatusForbidden)

@@ -23,6 +23,8 @@ const (
 	TARGZ
 	// BUNDLE bundle archive type
 	BUNDLE
+	// TARZST tar zst archive type
+	TARZST
 )
 
 // String converts an ArchiveType to string
@@ -34,6 +36,8 @@ func (a ArchiveType) String() string {
 		return "tar.gz"
 	case BUNDLE:
 		return "bundle"
+	case TARZST:
+		return "tar.zst"
 	}
 	return "unknown"
 }
@@ -46,6 +50,8 @@ func ToArchiveType(s string) ArchiveType {
 		return TARGZ
 	case "bundle":
 		return BUNDLE
+	case "tar.zst":
+		return TARZST
 	}
 	return 0
 }

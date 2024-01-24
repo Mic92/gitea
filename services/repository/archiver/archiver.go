@@ -82,6 +82,9 @@ func NewRequest(repoID int64, repo *git.Repository, uri string) (*ArchiveRequest
 	case strings.HasSuffix(uri, ".tar.gz"):
 		ext = ".tar.gz"
 		r.Type = git.TARGZ
+	case strings.HasSuffix(uri, ".tar.zst"):
+		ext = ".tar.zst"
+		r.Type = git.TARZST
 	case strings.HasSuffix(uri, ".bundle"):
 		ext = ".bundle"
 		r.Type = git.BUNDLE
